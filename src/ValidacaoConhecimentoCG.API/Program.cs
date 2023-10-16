@@ -1,0 +1,49 @@
+using ValidacaoConhecimentoCG.API.Configurations;
+using ValidacaoConhecimentoCG.API.Infrastructure.Data.Context;
+using ValidacaoConhecimentoCG.API.Infrastructure.Middlewares;
+
+var builder = WebApplication.CreateBuilder(args);
+
+var env = builder.Environment.EnvironmentName ?? "Development";
+
+builder.Configuration.AddJsonFile("appsettings.json", true, true);
+builder.Configuration.AddJsonFile($"appsettings.{env}.json", optional: false, reloadOnChange: true);
+builder.Configuration.AddEnvironmentVariables();
+
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+builder.Services.RegisterServicesApi();
+builder.Services.RegisterRepositories();
+builder.Services.RegisterAppServices();
+builder.Services.RegisterHttpClients();
+builder.Services.RegisterApiDatabase();
+
+var app = builder.Build();
+
+var context = app.Services.CreateScope().ServiceProvider.GetRequiredService<ConfigurationsDbContext>();
+context.Migrate();
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.UseHttpsRedirection();
+app.UseRouting();
+
+//app.UseAuthorization();
+
+app.UseCors(x => x
+    .AllowAnyOrigin()
+    .AllowAnyMethod()
+    .AllowAnyHeader());
+
+app.UseMiddleware<ExceptionMiddleware>();
+
+app.MapControllers();
+
+app.Run();
