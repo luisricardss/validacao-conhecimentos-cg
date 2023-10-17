@@ -11,6 +11,7 @@ using ValidacaoConhecimentoCG.API.Infrastructure.Notificacoes;
 
 namespace ValidacaoConhecimentoCG.API.Controllers
 {
+    [Route("Conta")]
     public class ContaController : BaseController
     {
         private readonly IContaAppService _contaAppService;
@@ -39,10 +40,10 @@ namespace ValidacaoConhecimentoCG.API.Controllers
             return CustomResponse(result);
         }
 
-        [HttpDelete]
+        [HttpDelete("{id:guid}")]
         [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(Response<bool>))]
         [SwaggerOperation(Summary = "Remover conta")]
-        public async Task<IActionResult> Remover([FromQuery] Guid id)
+        public async Task<IActionResult> Remover(Guid id)
         {
             var result = await _contaAppService.Remover(id);
             return CustomResponse(result);

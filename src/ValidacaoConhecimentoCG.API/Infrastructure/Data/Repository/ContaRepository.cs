@@ -7,7 +7,7 @@ namespace ValidacaoConhecimentoCG.API.Infrastructure.Data.Repository
 {
     public class ContaRepository : GenericRepository<Conta>, IContaRepository
     {
-        protected ContaRepository(ValidacaoConhecimentoDBContext context) : base(context)
+        public ContaRepository(ValidacaoConhecimentoDBContext context) : base(context)
         {
         }
     }

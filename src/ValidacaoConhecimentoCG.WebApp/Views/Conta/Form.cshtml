@@ -1,0 +1,38 @@
+﻿@model ContaViewModel
+@{
+    ViewData["Title"] = "Conta";
+}
+
+@if (TempData["Erro"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["Erro"]
+    </div>
+}
+
+<div class="container">
+    @if (Model.Id.HasValue)
+    {
+        <h1>Atualizar Item</h1>
+    }
+    else
+    {
+        <h1>Adicionar Item</h1>
+    }
+
+    <form method="post">
+        <div class="form-group mb-2">
+            <label asp-for="Nome" for="nome">Nome:</label>
+            <input type="text" class="form-control" id="nome" name="nome" asp-for="Nome">
+            <span asp-validation-for="Nome" class="text-danger"></span>
+        </div>
+        <div class="form-group mb-2">
+            <label asp-for="Descricao" for="descricao">Descrição:</label>
+            <textarea class="form-control" id="descricao" name="descricao" asp-for="Descricao"></textarea>
+            <span asp-validation-for="Descricao" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-2">Salvar</button>
+        <a asp-controller="Conta" asp-action="Index" class="btn btn-info mt-2">Cancelar</a>
+    </form>
+</div>

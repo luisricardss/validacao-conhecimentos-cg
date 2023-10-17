@@ -3,7 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidacaoConhecimentoCG.API", "src\ValidacaoConhecimentoCG.API\ValidacaoConhecimentoCG.API.csproj", "{D8242408-6C74-4BB9-8AFE-17C219FDDB81}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValidacaoConhecimentoCG.API", "src\ValidacaoConhecimentoCG.API\ValidacaoConhecimentoCG.API.csproj", "{D8242408-6C74-4BB9-8AFE-17C219FDDB81}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - API", "1 - API", "{118C2D58-9BA3-4C3A-AA35-DF36668C065E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - UI", "0 - UI", "{6F961D6E-2C42-4801-9E2D-247D3E6C2751}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EE9DF4A3-353A-4186-AF4D-0B7E13A7C200}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Tests", "2 - Tests", "{80C5CCF4-22C0-4A56-95C1-C3D9FC47BC79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidacaoConhecimentoCG.UnitTest", "src\ValidacaoConhecimentoCG.UnitTest\ValidacaoConhecimentoCG.UnitTest.csproj", "{6835F58E-FED9-48E2-A0C0-AC7CEFE24AB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidacaoConhecimentoCG.WebApp", "src\ValidacaoConhecimentoCG.WebApp\ValidacaoConhecimentoCG.WebApp.csproj", "{E1B5428B-1904-4F40-9B8E-8A4C273AC576}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +31,22 @@ Global
 		{D8242408-6C74-4BB9-8AFE-17C219FDDB81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8242408-6C74-4BB9-8AFE-17C219FDDB81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8242408-6C74-4BB9-8AFE-17C219FDDB81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6835F58E-FED9-48E2-A0C0-AC7CEFE24AB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6835F58E-FED9-48E2-A0C0-AC7CEFE24AB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6835F58E-FED9-48E2-A0C0-AC7CEFE24AB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6835F58E-FED9-48E2-A0C0-AC7CEFE24AB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1B5428B-1904-4F40-9B8E-8A4C273AC576}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1B5428B-1904-4F40-9B8E-8A4C273AC576}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1B5428B-1904-4F40-9B8E-8A4C273AC576}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1B5428B-1904-4F40-9B8E-8A4C273AC576}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D8242408-6C74-4BB9-8AFE-17C219FDDB81} = {118C2D58-9BA3-4C3A-AA35-DF36668C065E}
+		{6835F58E-FED9-48E2-A0C0-AC7CEFE24AB5} = {80C5CCF4-22C0-4A56-95C1-C3D9FC47BC79}
+		{E1B5428B-1904-4F40-9B8E-8A4C273AC576} = {6F961D6E-2C42-4801-9E2D-247D3E6C2751}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C2D957DF-15DA-417A-A738-71410EE50FA4}
