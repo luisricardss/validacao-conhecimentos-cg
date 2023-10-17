@@ -1,0 +1,64 @@
+﻿@model ContasViewModel
+@{
+    ViewData["Title"] = "Listagem contas";
+}
+
+@if (TempData["Erro"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["Erro"]
+    </div>
+}
+
+<div class="container">
+    <h1>Lista de Contas</h1>
+
+    <!-- Botão Adicionar -->
+    <a asp-controller="Conta" asp-action="Form" class="btn btn-primary my-1">Adicionar</a>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Contas)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Nome</td>
+                    <td>@item.Descricao</td>
+                    <td>
+                        <!-- Botão Editar -->
+                        <a asp-controller="Conta" asp-action="Form" asp-route-id="@item.Id" class="btn btn-info">Editar</a>
+
+                        <!-- Botão Excluir -->
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalExcluir_@item.Id">Excluir</button>
+
+                        <div class="modal fade" id="modalExcluir_@item.Id" tabindex="-1" aria-labelledby="meuModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="meuModalLabel">Título do Modal</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Tem certeza de que deseja excluir a @item.Nome?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                        <a asp-controller="Conta" asp-action="Excluir" asp-route-id="@item.Id" class="btn btn-danger">Excluir</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

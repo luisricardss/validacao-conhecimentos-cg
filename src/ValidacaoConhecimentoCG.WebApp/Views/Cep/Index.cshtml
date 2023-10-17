@@ -1,0 +1,72 @@
+﻿@model CepViewModel
+@{
+    ViewData["Title"] = "Consulta CEP";
+}
+
+@if (TempData["Erro"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["Erro"]
+    </div>
+}
+
+<div class="container">
+    <form method="post" asp-action="BuscarEndereco">
+        <div class="form-group mb-2">
+            <label asp-for="Cep" for="cep">CEP:</label>
+            <input type="text" class="form-control" id="cep" name="cep" asp-for="Cep">
+            <span asp-validation-for="Cep" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-2">Buscar Endereço</button>
+        <a asp-controller="Cep" asp-action="Index" class="btn btn-info mt-2">Cancelar</a>
+    </form>
+
+    @if (Model?.Endereco != null)
+    {
+        <div class="mt-4">
+            <label>UF:</label>
+            <span>@Model.Endereco.UF</span>
+        </div>
+
+        <div class="mt-2">
+            <label>Cidade:</label>
+            <span>@Model.Endereco.Cidade</span>
+        </div>
+
+        <div class="mt-2">
+            <label>Logradouro:</label>
+            <span>@Model.Endereco.Logradouro</span>
+        </div>
+
+        <div class="mt-2">
+            <label>Complemento:</label>
+            <span>@Model.Endereco.Complemento</span>
+        </div>
+
+        <div class="mt-2">
+            <label>Bairro:</label>
+            <span>@Model.Endereco.Bairro</span>
+        </div>
+
+        <div class="mt-2">
+            <label>GIA:</label>
+            <span>@Model.Endereco.GIA</span>
+        </div>
+
+        <div class="mt-2">
+            <label>DDD:</label>
+            <span>@Model.Endereco.DDD</span>
+        </div>
+
+        <div class="mt-2">
+            <label>IBGE:</label>
+            <span>@Model.Endereco.IBGE</span>
+        </div>
+
+        <div class="mt-2">
+            <label>SIAFI:</label>
+            <span>@Model.Endereco.SIAFI</span>
+        </div>
+    }
+</div>
