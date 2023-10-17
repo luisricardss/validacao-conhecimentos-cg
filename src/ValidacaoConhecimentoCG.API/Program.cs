@@ -4,8 +4,9 @@ using ValidacaoConhecimentoCG.API.Infrastructure.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var env = builder.Environment.EnvironmentName ?? "Development";
 builder.Configuration.AddJsonFile("appsettings.json", true, true);
-builder.Configuration.AddJsonFile($"appsettings.Development.json", optional: false, reloadOnChange: true);
+builder.Configuration.AddJsonFile($"appsettings.{env}.json", optional: false, reloadOnChange: true);
 builder.Configuration.AddEnvironmentVariables();
 
 builder.Services.AddControllers();
@@ -24,11 +25,8 @@ var context = app.Services.CreateScope().ServiceProvider.GetRequiredService<Conf
 context.Migrate();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 app.UseRouting();

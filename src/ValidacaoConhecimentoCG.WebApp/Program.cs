@@ -2,8 +2,9 @@ using ValidacaoConhecimentoCG.WebApp.ExternalServices.API;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var env = builder.Environment.EnvironmentName ?? "Development";
 builder.Configuration.AddJsonFile("appsettings.json", true, true);
-builder.Configuration.AddJsonFile($"appsettings.Development.json", optional: false, reloadOnChange: true);
+builder.Configuration.AddJsonFile($"appsettings.{env}.json", optional: false, reloadOnChange: true);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages() ;

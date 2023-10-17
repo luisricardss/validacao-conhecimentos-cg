@@ -17,9 +17,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Tests", "2 - Tests", "{80C5CCF4-22C0-4A56-95C1-C3D9FC47BC79}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidacaoConhecimentoCG.UnitTest", "src\ValidacaoConhecimentoCG.UnitTest\ValidacaoConhecimentoCG.UnitTest.csproj", "{6835F58E-FED9-48E2-A0C0-AC7CEFE24AB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValidacaoConhecimentoCG.UnitTest", "src\ValidacaoConhecimentoCG.UnitTest\ValidacaoConhecimentoCG.UnitTest.csproj", "{6835F58E-FED9-48E2-A0C0-AC7CEFE24AB5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidacaoConhecimentoCG.WebApp", "src\ValidacaoConhecimentoCG.WebApp\ValidacaoConhecimentoCG.WebApp.csproj", "{E1B5428B-1904-4F40-9B8E-8A4C273AC576}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValidacaoConhecimentoCG.WebApp", "src\ValidacaoConhecimentoCG.WebApp\ValidacaoConhecimentoCG.WebApp.csproj", "{E1B5428B-1904-4F40-9B8E-8A4C273AC576}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
