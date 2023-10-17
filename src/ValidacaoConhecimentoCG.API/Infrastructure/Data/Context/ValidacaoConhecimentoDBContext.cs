@@ -63,8 +63,8 @@ namespace ValidacaoConhecimentoCG.API.Infrastructure.Data.Context
 
         private static void PreencherDataAlteracao(Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry entry)
         {
-            if (entry.Entity.GetType().GetProperty("DataAlteracao") != null)
-                entry.Property("DataAlteracao").CurrentValue = DateTime.Now;
+            if (entry.Entity.GetType().GetProperty("DataAtualizacao") != null)
+                entry.Property("DataAtualizacao").CurrentValue = DateTime.Now;
         }
     }
 }
