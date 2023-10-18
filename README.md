@@ -8,7 +8,7 @@ O ambiente do portal é composto por um único serviço de banco de dados em **SQLS
 1. Inicialmente, utilizamos o SQLServer localDB. Você pode baixá-lo [aqui](https://learn.microsoft.com/pt-br/sql/database-engine/configure-windows/sql-server-express-localdb?view=sql-server-ver16).
 2. Após o download, instale e execute o serviço SQLServer (SQLEXPRESS).
 
-3. Existe outra maneira de usar o SQLServer, que envolve o uso de uma instância no Docker. Para isso, utilize o arquivo 'docker/development-sql-server.yml'.
+1. Existe outra maneira de usar o SQLServer, que envolve o uso de uma instância no Docker. Para isso, utilize o arquivo 'docker/development-sql-server.yml'.
    **Atenção:** Se optar por usar o Docker, certifique-se de ajustar o arquivo 'appsettings.Development.json' com as credenciais corretas.
 
 - Execute o seguinte comando:
