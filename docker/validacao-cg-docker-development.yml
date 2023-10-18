@@ -1,0 +1,39 @@
+version: '3.9'
+
+services:
+  sqlserver:
+    container_name: validacao-cg-sqlserver
+    image: mcr.microsoft.com/mssql/server:latest
+    ports:
+      - 1433:1433
+    environment:
+      SA_PASSWORD: "testeOITO8"
+      ACCEPT_EULA: "Y"
+      
+  api:
+    container_name: validacao-cg-api
+    build:
+      context: ../src
+      dockerfile: ./ValidacaoConhecimentoCG.API/Dockerfile
+    restart: always
+    ports:
+      - 5050:5050
+    environment:
+      - ASPNETCORE_ENVIRONMENT=DockerDevelopment
+      - ASPNETCORE_URLS=http://*:5050
+    depends_on:
+      - sqlserver
+      
+  webapp:
+    container_name: validacao-cg-webapp
+    build:
+      context: ../src
+      dockerfile: ./ValidacaoConhecimentoCG.WebApp/Dockerfile
+    restart: always
+    ports:
+      - 80:80
+    environment:
+      - ASPNETCORE_ENVIRONMENT=DockerDevelopment
+      - ASPNETCORE_URLS=http://*:80
+    depends_on:
+      - api

@@ -9,6 +9,7 @@ using ValidacaoConhecimentoCG.API.Infrastructure.Notificacoes;
 
 namespace ValidacaoConhecimentoCG.API.Controllers
 {
+    [Route("Cep")]
     public class CepController : BaseController
     {
         private readonly ICepAppService _cepAppService;
@@ -22,9 +23,9 @@ namespace ValidacaoConhecimentoCG.API.Controllers
         [HttpGet]
         [SwaggerResponse((int)HttpStatusCode.OK, "", typeof(Response<EnderecoViaCEPResponse?>))]
         [SwaggerOperation(Summary = "Consulta CEP")]
-        public IActionResult Remover([FromQuery] string? cep)
+        public async Task<IActionResult> ObterEndereceoPorCep([FromQuery] string? cep)
         {
-            var result = _cepAppService.ObterEndereceoPorCep(cep);
+            var result = await _cepAppService.ObterEndereceoPorCep(cep);
             return CustomResponse(result);
         }
     }
